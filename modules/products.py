@@ -5,6 +5,7 @@ import os
 
 products_bp = Blueprint('products', __name__)
 UPLOAD_FOLDER = 'static/uploads/products'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @products_bp.route("/admin/products")
 def admin_products():

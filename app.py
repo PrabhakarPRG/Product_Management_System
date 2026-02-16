@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, session, jsonify
 from config import SECRET_KEY
 from db import get_db
+import os
 
 # Import modules
 from modules.auth import auth_bp
@@ -11,7 +12,8 @@ from modules.orders import orders_bp
 from modules.payment import payment_bp
 
 app = Flask(__name__)
-app.secret_key = SECRET_KEY
+app.secret_key = os.environ.get("SECRET_KEY")
+
 
 # Register blueprints
 app.register_blueprint(auth_bp)
