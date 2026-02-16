@@ -1,0 +1,92 @@
+{% extends 'layouts/admin_base.html' %}
+{% set active = 'products' %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Products</h1>
+  <button class="add-btn" onclick="openProductModal()">+ Add Product</button>
+</div>
+
+<div class="product-card">
+  <div class="product-header">
+    <span>Product</span>
+    <span>Category</span>
+    <span>Price</span>
+    <span>Stock</span>
+    <span>Actions</span>
+  </div>
+
+  {% for p in products %}
+  <div class="product-row" id="row-{{p.id}}">
+    <div class="product-info">
+      <img src="/static/uploads/products/{{p.image}}">
+      <div>
+        <strong>{{p.name}}</strong>
+        <small>{{p.description[:30]}}...</small>
+      </div>
+    </div>
+
+    <span class="badge">{{p.category}}</span>
+
+    <span class="price">₹{{p.price}}</span>
+
+    <span class="stock {{ 'low' if p.stock < 30 else 'ok' }}">
+      {{p.stock}}
+    </span>
+
+    <div class="actions">
+      <i class="icon edit" onclick="editProduct({{p.id}})"></i>
+      <i class="icon delete" onclick="deleteProduct({{p.id}})"></i>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- ADD PRODUCT MODAL -->
+<div id="productModal" class="modal-overlay" onclick="closeOnOverlay(event)">
+  <div class="modal-box animate-in">
+
+    <div class="modal-header">
+      <h3>New Product</h3>
+      <span class="close-btn" onclick="closeProductModal()">×</span>
+    </div>
+
+    <form method="POST" action="/admin/products/add" enctype="multipart/form-data">
+
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Description</label>
+      <textarea name="description"></textarea>
+
+      <div class="two-col">
+        <div>
+          <label>Price (₹)</label>
+          <input type="number" name="price" step="0.01" required>
+        </div>
+        <div>
+          <label>Stock</label>
+          <input type="number" name="stock" required>
+        </div>
+      </div>
+
+      <label>Category</label>
+        <select name="category_id" required>
+          <option value="">Select Category</option>
+          {% for c in categories %}
+            <option value="{{ c.id }}">{{ c.name }}</option>
+          {% endfor %}
+        </select>
+
+      <label>Image</label>
+      <input type="file" name="image" required>
+
+      <button type="submit" class="save-btn">Save Product</button>
+    </form>
+
+  </div>
+</div>
+
+
+<script src="/static/js/products.js"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ action }} Product</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+  <input name="name" value="{{ product.name if product }}" required>
+  <input name="price" value="{{ product.price if product }}" required>
+  <input name="stock" value="{{ product.stock if product }}" required>
+
+  <textarea name="description">{{ product.description if product }}</textarea>
+
+  <input type="file" name="image">
+
+  {% if product and product.image %}
+    <img src="/static/uploads/products/{{ product.image }}" width="100">
+    <input type="hidden" name="old_image" value="{{ product.image }}">
+  {% endif %}
+
+  <button>{{ action }} Product</button>
+</form>
+
+{% endblock %}

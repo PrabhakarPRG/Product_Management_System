@@ -1,0 +1,49 @@
+{% extends "layouts/admin_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/orders.css') }}">
+
+<div class="orders-container">
+  <div class="header">
+    <h2>Orders</h2>
+    <select class="status-filter">
+      <option>All Orders</option>
+      <option>Pending</option>
+      <option>Processing</option>
+      <option>Shipped</option>
+      <option>Delivered</option>
+      <option>Cancelled</option>
+    </select>
+  </div>
+
+  <table class="orders-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for o in orders %}
+      <tr>
+        <td>{{ o.order_number }}</td>
+        <td>
+          <b>{{ o.username }}</b><br>
+          <small>{{ o.email }}</small>
+        </td>
+        <td>₹{{ o.total_amount }}</td>
+        <td>
+          <span class="badge {{ o.status }}">{{ o.status }}</span>
+        </td>
+        <td>{{ o.created_at }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/orders.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify OTP</title>
+  <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body>
+<div class="auth-box">
+  <h2>Verify OTP</h2>
+
+  {% for cat,msg in get_flashed_messages(with_categories=true) %}
+    <p class="{{cat}}">{{msg}}</p>
+  {% endfor %}
+
+  <form method="POST">
+    <input type="text" name="otp" placeholder="Enter OTP" required>
+    <button type="submit">Verify</button>
+  </form>
+
+  <a href="/resend-otp">Resend OTP</a>
+</div>
+</body>
+</html>

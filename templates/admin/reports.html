@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Reports & Analytics</h1>
+
+<div class="card">
+    <h3>Stock Report</h3>
+    <canvas id="stockChart"></canvas>
+</div>
+
+<script id="reports-data" type="application/json">
+{{ {"labels": labels, "values": values}|tojson }}
+</script>
+<script>
+const reportsData = JSON.parse(document.getElementById('reports-data').textContent || '{}');
+new Chart(document.getElementById("stockChart"), {
+    type: "line",
+    data: {
+        labels: reportsData.labels || [],
+        datasets: [{
+            label: "Stock Level",
+            data: reportsData.values || [],
+            borderColor: "#4CAF50",
+            fill: false,
+            tension: 0.3
+        }]
+    }
+});
+</script>
+{% endblock %}

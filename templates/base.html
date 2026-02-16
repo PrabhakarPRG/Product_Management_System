@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title or "Product Management System" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="layout">
+    <aside class="sidebar">
+        <h2 class="logo">
+            Prabha um
+            Pavel um
+            </h2>
+
+        <ul>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+
+            {% if session.role == 'admin' %}
+            <li><a href="/admin/products">Products</a></li>
+            <li><a href="/admin/categories">Categories</a></li>
+            <li><a href="/admin/orders">Orders</a></li>
+            <li><a href="/admin/reports">Reports</a></li>
+            <li><a href="/admin/discounts">Discounts</a></li>
+            {% endif %}
+
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <aside class="sidebar">
+    <div class="logo">
+      📦 Prabha um 
+      🛒 Pavel um
+    </div>
+
+    <a href="/shop" class="{% if active=='shop' %}active{% endif %}">🏪 Shop</a>
+    <a href="/cart" class="{% if active=='cart' %}active{% endif %}">🛒 Cart</a>
+    <a href="/my_orders">📦 My Orders</a>
+    <a href="/profile">👤 Profile</a>
+    <a href="/logout">🚪 Logout</a>
+  </aside>
+
+  <main class="content animate">
+    {% block content %}{% endblock %}
+  </main>
+
+</div>
+
+</body>
+</html>

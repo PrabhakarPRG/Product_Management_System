@@ -1,0 +1,27 @@
+{% extends "layouts/user_base.html" %}
+{% set active = 'dashboard' %}
+{% block content %}
+
+<h1>User Dashboard</h1>
+
+<div class="cards">
+  <div class="card">
+    <h3>My Orders</h3>
+    <p id="myOrders">0</p>
+  </div>
+  <div class="card">
+    <h3>Cart Items</h3>
+    <p id="cartItems">0</p>
+  </div>
+</div>
+
+<script>
+fetch('/api/user/stats')
+.then(res => res.json())
+.then(data => {
+  document.getElementById("myOrders").innerText = data.orders;
+  document.getElementById("cartItems").innerText = data.cart;
+});
+</script>
+
+{% endblock %}

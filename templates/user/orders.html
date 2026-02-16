@@ -1,0 +1,21 @@
+{% extends "layouts/user_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css') }}">
+<script src="{{ url_for('static', filename='js/ui_effects.js') }}"></script>
+
+<h2>My Orders</h2>
+
+<div class="user-orders">
+  {% for o in orders %}
+  <div class="order-card">
+    <h4>{{ o.order_number }}</h4>
+    <p>Total: ₹{{ o.total_amount }}</p>
+    <span class="badge {{ o.status }}">{{ o.status }}</span>
+    <small>{{ o.created_at }}</small>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

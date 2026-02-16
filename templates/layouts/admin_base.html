@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+  <link rel="stylesheet" href="/static/css/products.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo">
+        📦 Prabha um 
+        🛒 Pavel um
+    </div>
+
+    <p class="section">MANAGEMENT</p>
+
+    <a href="/admin/dashboard" class="{% if active=='dashboard' %}active{% endif %}">
+      📊 Dashboard
+    </a>
+
+    <a href="/admin/products" class="{% if active=='products' %}active{% endif %}">
+      📦 Products
+    </a>
+
+    <a href="/admin/categories">📁 Categories</a>
+    <a href="/admin/orders">🧾 Orders</a>
+    <a href="/admin/payment">💳 Payments</a>
+    <a href="/admin/reports">📈 Reports</a>
+    <a href="/admin/discounts">🏷 Discounts</a>
+    <a href="/admin/feedback">💬 Feedback</a>
+    <a href="/admin/notifications">🔔 Notifications</a>
+
+    <div class="spacer"></div>
+    <a href="/shop">⬅ Back to Shop</a>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content animate">
+    {% block content %}{% endblock %}
+  </main>
+
+</div>
+
+</body>
+</html>

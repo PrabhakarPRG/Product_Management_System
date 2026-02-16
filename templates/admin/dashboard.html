@@ -1,0 +1,52 @@
+{% extends 'layouts/admin_base.html' %}
+{% set active = 'dashboard' %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Dashboard</h1>
+  <p>Welcome back, Admin</p>
+</div>
+
+<div class="stats-grid">
+
+  <div class="stat-card">
+    <div class="icon orange">📦</div>
+    <div>
+      <p>Total Products</p>
+      <h2>{{ total_products }}</h2>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="icon green">🧾</div>
+    <div>
+      <p>Total Orders</p>
+      <h2>{{ total_orders }}</h2>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="icon yellow">₹</div>
+    <div>
+      <p>Revenue</p>
+      <h2>₹{{ revenue }}</h2>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="icon red">⚠</div>
+    <div>
+      <p>Low Stock</p>
+      <h2>{{ low_stock }}</h2>
+    </div>
+  </div>
+
+</div>
+
+<div class="card chart-card">
+  <h3>Sales Overview</h3>
+  <canvas id="salesChart"></canvas>
+</div>
+
+{% endblock %}

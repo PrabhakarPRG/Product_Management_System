@@ -1,0 +1,57 @@
+/* =========================
+   CART PAGE
+========================= */
+
+.cart-table {
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.cart-table th {
+  background: var(--primary);
+  color: white;
+  padding: 15px;
+}
+
+.cart-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.btn-remove {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-remove:hover {
+  transform: scale(1.1);
+  background: #dc2626;
+}
+
+.cart-total {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-checkout {
+  background: var(--success);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-checkout:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(16,185,129,0.5);
+}

@@ -1,0 +1,31 @@
+{% extends "layouts/user_base.html" %}
+
+{% block content %}
+
+<div class="orders-container">
+    <h2>My Orders</h2>
+
+    {% for order in orders %}
+        <div class="order-card">
+            <div>
+                <strong>Order ID:</strong> {{ order.id }}
+            </div>
+            <div>
+                <strong>Total:</strong> ₹{{ order.total_amount }}
+            </div>
+            <div>
+                <strong>Status:</strong>
+                <span class="status-badge {{ order.status|lower }}">
+                    {{ order.status }}
+                </span>
+            </div>
+            <div>
+                {{ order.created_at }}
+            </div>
+        </div>
+    {% else %}
+        <p>No orders yet.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

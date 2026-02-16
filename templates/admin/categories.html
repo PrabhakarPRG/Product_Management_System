@@ -1,0 +1,52 @@
+{% extends "layouts/admin_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/categories.css">
+
+<div class="page-header">
+  <h2>Categories</h2>
+  <button class="btn-primary" onclick="openCategoryModal()">+ Add Category</button>
+</div>
+
+<!-- CATEGORY GRID -->
+<div class="category-grid">
+  {% for c in categories %}
+  <div class="category-card">
+    <div class="category-icon">{{ c.icon }}</div>
+    <div class="category-name">{{ c.name }}</div>
+  </div>
+  {% else %}
+  <p>No categories found.</p>
+  {% endfor %}
+</div>
+
+<!-- ADD CATEGORY MODAL -->
+<div class="modal-overlay" id="categoryModal">
+  <div class="modal-box animate-scale">
+    <h3>Add New Category</h3>
+
+    <form id="categoryForm">
+      <input
+        type="text"
+        name="name"
+        placeholder="Category Name"
+        required
+      >
+
+      <input
+        type="text"
+        name="icon"
+        placeholder="Icon (emoji or fa-icon)"
+      >
+    </form>
+
+    <div class="modal-actions">
+      <button class="btn-primary" id="saveCategory">Save</button>
+      <button class="btn-secondary" onclick="closeCategoryModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/categories.js"></script>
+
+{% endblock %}

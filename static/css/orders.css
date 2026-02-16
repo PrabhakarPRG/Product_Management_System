@@ -1,0 +1,117 @@
+.orders-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.orders-card {
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+  animation:fadeUp .4s ease;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  padding:12px;
+  border-bottom:1px solid #eee;
+}
+
+.badge {
+  padding:5px 12px;
+  border-radius:20px;
+  font-size:12px;
+  text-transform:capitalize;
+}
+
+.pending { background:#f3f3f3; }
+.processing { background:#ffe8a1; }
+.shipped { background:#b3e5fc; }
+.delivered { background:#c8e6c9; }
+.cancelled { background:#ffcdd2; }
+
+.updateStatus {
+  padding:6px;
+  border-radius:8px;
+}
+
+.order-box {
+  background:#fff;
+  margin-bottom:15px;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+  animation:slideIn .4s ease;
+}
+
+.orders-container {
+    padding: 30px;
+}
+
+.order-card {
+    background: #1e1e2f;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.status-badge.pending {
+    background: orange;
+}
+
+.status-badge.completed {
+    background: green;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.checkout-btn {
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #6c63ff, #4e4bdb);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.checkout-btn:hover {
+    transform: scale(1.05);
+}
+
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:none;}
+}
+
+@keyframes slideIn {
+  from {opacity:0; transform:translateX(-20px);}
+  to {opacity:1; transform:none;}
+}
