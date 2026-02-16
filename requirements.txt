@@ -1,7 +1,6 @@
-flask
-mysql-connector-python
-werkzeug
-requests
-python-dotenv
-razorpay
+Flask
 gunicorn
+mysql-connector-python
+python-dotenv
+Werkzeug
+razorpay
